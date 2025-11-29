@@ -1,7 +1,12 @@
 import "./App.css"
+import { Cover } from "./page/cover"
 
 function App() {
-  return <>Notes app</>
+  return (
+    <>
+      <Cover />
+    </>
+  )
 }
 
 export default App
