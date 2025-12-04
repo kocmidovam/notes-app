@@ -1,4 +1,4 @@
-import { useRef, ChangeEventHandler } from "react"
+import { useRef, type ChangeEventHandler } from "react"
 import styles from "./cover.module.css"
 
 export const Cover = () => {
