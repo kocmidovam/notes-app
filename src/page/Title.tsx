@@ -20,18 +20,19 @@ export const Title = ({ title, changePageTitle, addNote }: TitleProps) => {
   }, [title])
 
   return (
-    <div
-      className={styles.container}
-      contentEditable
-      suppressContentEditableWarning
-      onInput={(e) => changePageTitle(e.currentTarget.textContent || "")}
-      onKeyDown={(event) => {
-        if (event.key == "Enter") {
-          event.preventDefault()
-          addNote({ type: "text", id: nanoid(), value: "" }, 0)
-        }
-      }}>
-      {title}
+    <div className={styles.container}>
+      <h1
+        ref={headerRef}
+        className={styles.title}
+        contentEditable
+        suppressContentEditableWarning
+        onInput={(e) => changePageTitle(e.currentTarget.textContent || "")}
+        onKeyDown={(event) => {
+          if (event.key == "Enter") {
+            event.preventDefault()
+            addNote({ type: "text", id: nanoid(), value: "" }, 0)
+          }
+        }}></h1>
     </div>
   )
 }
