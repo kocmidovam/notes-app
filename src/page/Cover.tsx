@@ -15,7 +15,11 @@ export const Cover = () => {
 
   return (
     <div className={styles.cover}>
-      <img src='/src/assets/mallorca-new.jpg' alt='Cover' className={styles.image} />
+      <img
+        src={import.meta.env.BASE_URL + "mallorca-new.jpg"}
+        alt='Cover'
+        className={styles.image}
+      />
       <button className={styles.button} onClick={onChangeCoverImage}>
         Change cover
       </button>
