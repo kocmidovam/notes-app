@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-export const useOverflowScreenBotom = () => {
+export const useOverflowsScreenBottom = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [isOverflowing, setIsOverflowing] = useState(false)
 

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import type { NodeType } from "../utils/types"
-import { useOverflowScreenBotom } from "./useOverflowScreenBotom"
-import styles from "./commandPanel.module.css"
+import styles from "./CommandPanel.module.css"
 import cx from "classnames"
+import { useOverflowsScreenBottom } from "./useOverflowScreenBotom.tsx"
 
 type CommandPanelProps = {
   nodeText: string
@@ -18,14 +18,15 @@ const supportedNodeTypes: SupportedNodeType[] = [
   { value: "text", name: "Text" },
   { value: "list", name: "List" },
   { value: "page", name: "Page" },
+  { value: "image", name: "Image" },
   { value: "heading1", name: "Heading 1" },
   { value: "heading2", name: "Heading 2" },
   { value: "heading3", name: "Heading 3" },
 ]
 
-export const CommandPanel = ({ nodeText, selectItem }: CommandPanelProps) => {
+export const CommandPanel = ({ selectItem, nodeText }: CommandPanelProps) => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(0)
-  const { ref, isOverflowing } = useOverflowScreenBotom()
+  const { isOverflowing, ref } = useOverflowsScreenBottom()
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -33,12 +34,13 @@ export const CommandPanel = ({ nodeText, selectItem }: CommandPanelProps) => {
         selectItem(supportedNodeTypes[selectedItemIndex].value)
       }
     }
+
     window.addEventListener("keydown", handleKeyDown)
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [selectItem, selectedItemIndex])
+  }, [selectedItemIndex, selectItem])
 
   useEffect(() => {
     const normalizedValue = nodeText.toLowerCase().replace(/\//, "")
