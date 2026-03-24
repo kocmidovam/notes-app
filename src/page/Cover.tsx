@@ -1,5 +1,5 @@
 import { useRef, type ChangeEventHandler } from "react"
-import styles from "./cover.module.css"
+import styles from "./Cover.module.css"
 import { FileImage } from "../components/FileImage"
 import { uploadImage } from "../utils/uploadImage"
 
