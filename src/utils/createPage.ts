@@ -9,7 +9,7 @@ export const createPage = () => {
     title: "Title",
     slug,
     nodes: [],
-    cover: "mallorca-new.jpg",
+    cover: "",
   }
   return page
 }

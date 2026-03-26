@@ -29,7 +29,7 @@ export const Cover = ({ filePath, changePageCover }: CoverProps) => {
         <FileImage filePath={filePath} className={styles.image} />
       ) : (
         <img
-          src={import.meta.env.BASE_URL + "mallorca-new.jpg"}
+          src={import.meta.env.BASE_URL + "default-cover.svg"}
           alt='Cover'
           className={styles.image}
         />
