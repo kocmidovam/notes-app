@@ -13,7 +13,7 @@ export const useSyncedState = <TState>(
 			syncCallback(state)
 		}
 		didMountRef.current = true;
-	}, [state, setState])
+	}, [state, syncCallback])
 
 	return [state, setState]
 }

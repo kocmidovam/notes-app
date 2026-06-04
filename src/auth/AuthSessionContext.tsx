@@ -24,8 +24,8 @@ export const AuthSessionProvider = ({ children }: AuthSessionProviderProps) => {
       if (data.session) {
         setSession(data.session)
         setLoading(false)
-      } else {
-        console.log(error)
+      } else if (error) {
+        console.error("Failed to restore auth session:", error)
       }
     }
     auth()

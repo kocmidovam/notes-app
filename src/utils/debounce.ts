@@ -1,14 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any
-	? A
-	: never;
+type AnyFunction = (...args: never[]) => unknown
 
-export function debounce<TCallback extends Function>(
+export function debounce<TCallback extends AnyFunction>(
 	callback: TCallback,
 	delay = 300
 ) {
 	let timeoutId: ReturnType<typeof setTimeout>;
-	return function (...args: ArgumentTypes<TCallback>) {
+	return function (...args: Parameters<TCallback>) {
 		clearTimeout(timeoutId);
 		timeoutId = setTimeout(() => callback(...args), delay);
 	};

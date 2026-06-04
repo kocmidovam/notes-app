@@ -1,7 +1,6 @@
 import { supabase } from "../supabaseClient"
 
 export const uploadImage = async (file?: File) => {
-  console.log("Uploading file:", file)
   try {
     if (!file) {
       throw new Error("You must select an image to upload")
